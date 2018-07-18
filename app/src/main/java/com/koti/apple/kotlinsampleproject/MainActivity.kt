@@ -5,6 +5,8 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
+// Here val means const variable which doesn't change.
+// Here var means variable which can change.
 class MainActivity : AppCompatActivity() {
 
     val namesList = arrayListOf("Suresh", "Ramesh", "Hari","Koti")
@@ -26,6 +28,28 @@ class MainActivity : AppCompatActivity() {
             etr_name_et.text.clear()
             name_tv.text = nameEt
             println(namesList)
+
+            // Expressively tell the data type of variable ex:- var rawString :String ===> "Explaining the string variable."
+            var rawString :String  = "I am Raw String!"
+            println("Hey!!"+rawString)
+
+            val name = "Koti"
+            var isAvailable = true
+            println("Hey "+name+" is available >> "+isAvailable)
+
+            var aVal: Int = 5
+            var bVal = 6
+            println(" result >> "+ (aVal + bVal))
+
+            var doubleValue: Double
+            doubleValue = 33.45
+            var cVal: String = aVal.toString()
+            println("double value >> "+doubleValue)
+            println("cVal value >> "+cVal)
+            // Assign new value to variable.
+            cVal = "Local Broadcast Receiver"
+            println("cVal value >> "+cVal)
+
             ///
         }
     }
