@@ -134,6 +134,10 @@ class MainActivity : AppCompatActivity() {
         println(androidSubjectList.size)
         println(androidSubjectList.get(5))
 
+        for (androidSubject in androidSubjectList) {
+            println(" android subect name is >> $androidSubject")
+        }
+
         // Hashmap [ For immutable ] (or) map [ For mutable ]
         var courseMap = mapOf("java" to "android", "objective-c" to "ios")
         // accessing the hash map values
@@ -141,10 +145,52 @@ class MainActivity : AppCompatActivity() {
         println(courseMap.get("java"))
         println(courseMap.getOrDefault("java", "name is exist"))
 
+        // for each loop
+        for ((key, value) in courseMap) {
+            println(" $key related to >> $value")
+        }
+
+        // while loop
+        var ivalue: Int = 10
+        while (ivalue > 0) {
+            println("i value is >> $ivalue")
+            ivalue-- // or ivalue = ivalue - 1
+        }
+
         // Hash map can insert values using ====> "put" method
         var courseHashMapValues = hashMapOf("java" to "android", "objective-c" to "ios")
         courseHashMapValues["java"] = "Hiebernet"
         courseHashMapValues.put("java script", "PHP")
         println(courseHashMapValues.get("java script"))
+
+        // Nullable value ===> null value cannot assign to string variable in kotlin for that we are using the "String?" type
+        var strLanguageName: String? = null
+        strLanguageName = "javascript"
+        var lengthValue = 0
+        if (strLanguageName != null) {
+            lengthValue += strLanguageName.length
+            println("length of the language name is $lengthValue  ")
+        } else {
+            lengthValue += -1
+            println("length of the language name is $lengthValue  ")
+        }
+
+        var lengthVal = if (strLanguageName != null) lengthValue += strLanguageName.length else lengthValue += -1
+        println("length of the language name >> $lengthVal  ")
+
+        // Second method safe call operator
+        println(strLanguageName.length)
+
+        // Using conditional operator or consize value or Elvis operator
+        var len = strLanguageName?.length ?: -1
+        println(len)
+
+        // assigning null value to strLanguageName ==> doesnot working below three lines of code as per expectation.
+        strLanguageName = null
+        var lenValue = lengthVal ?: "string has duplicate value"
+        println(lenValue)
+
+
+
     }
 }
