@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         var lengthOfArea = calculateArea(18, 16)
         println(sampleStr +" is > "+lengthOfArea)
         printCourseName("andr1oid")
-
+        introduceStringTemplate()
+        introduceCollectionFramework()
 
         name_tv.setText("Hi Kotlin User >>>> ")
         change_text_bt.setOnClickListener {
@@ -106,5 +107,44 @@ class MainActivity : AppCompatActivity() {
             "swift" -> print("Swift language selected > \n")
             else -> println("no language selected > ")
         }
+    }
+
+    // Kotlin has introduced the new template ===> $ in strings instead of concatination and reduced some burden to the user
+    fun introduceStringTemplate() {
+        var empName: String = "Narendra"
+        var age: Int = 28
+        var designation: String = "Ios developer"
+        println("$empName working as an $designation and his age is $age ")
+        println("name has  ${designation.length}  characters ")
+    }
+
+    // Working on array and collection framework arraylist and map, ...
+    fun introduceCollectionFramework() {
+        // String Array
+        var javaSubjects = listOf("Class and object", "Encapsulation", "Abstractions", "Inheritence", "Polymorphisam", "Interfaces", "Packages", "Exception handling", "Threads")
+        println(javaSubjects.sorted())
+        println(javaSubjects.get(5))
+        println(javaSubjects.last())
+        println(javaSubjects.contains("Inheritence"))
+
+        // String arraylist
+        var androidSubjectList = arrayListOf("Activity", "Fragments", "Broadcast", "Reciver", "Services", "Content", "providers", "Listview")
+        println(androidSubjectList.add("Cardview"))
+        println(androidSubjectList.add(5, "Design patterns"))
+        println(androidSubjectList.size)
+        println(androidSubjectList.get(5))
+
+        // Hashmap [ For immutable ] (or) map [ For mutable ]
+        var courseMap = mapOf("java" to "android", "objective-c" to "ios")
+        // accessing the hash map values
+        println(courseMap["java"])
+        println(courseMap.get("java"))
+        println(courseMap.getOrDefault("java", "name is exist"))
+
+        // Hash map can insert values using ====> "put" method
+        var courseHashMapValues = hashMapOf("java" to "android", "objective-c" to "ios")
+        courseHashMapValues["java"] = "Hiebernet"
+        courseHashMapValues.put("java script", "PHP")
+        println(courseHashMapValues.get("java script"))
     }
 }
